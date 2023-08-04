@@ -45,7 +45,7 @@ user.signUp = async(req, res) => {
     
     const token = jwt.sign({userId: result.dataValues.id },config.jwt.secret , {expiresIn: config.jwt.TokenExpireTime });
 
-    result.token = token;
+    result.dataValues.token = token;
     return res.status(201).json({ message: 'User signed up successfully', user: result });
 
   } catch (err) {
